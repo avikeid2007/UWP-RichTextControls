@@ -27,7 +27,7 @@ using System.Text.RegularExpressions;
 
 namespace RichTextControls.Lexer
 {
-    public class Tokenizer
+    public sealed class Tokenizer
     {
         public Tokenizer(IGrammar grammar)
         {
@@ -51,7 +51,7 @@ namespace RichTextControls.Lexer
                 foreach (var rule in Grammar.Rules)
                 {
                     match = rule.RegExpression.Match(str);
-                    
+
                     if (match.Success)
                     {
                         if (match.Length == 0)

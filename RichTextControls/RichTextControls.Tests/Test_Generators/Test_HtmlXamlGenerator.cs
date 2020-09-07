@@ -1,5 +1,5 @@
 ﻿using AngleSharp.Dom;
-using AngleSharp.Parser.Html;
+using AngleSharp.Html.Parser;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting.AppContainer;
 using RichTextControls.Generators;
@@ -41,7 +41,7 @@ namespace RichTextControls.Tests.Test_Generators
             try
             {
                 var parser = new HtmlParser();
-                var document = parser.Parse("<p>test</p>");
+                var document = parser.ParseDocument("<p>test</p>");
 
                 var generator = new HtmlXamlGenerator(document);
                 var generatedElement = generator.Generate();

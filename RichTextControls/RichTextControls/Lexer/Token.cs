@@ -22,7 +22,7 @@ namespace RichTextControls.Lexer
     /// <summary>
     /// Meaning full characters span
     /// </summary>
-    public class Token
+    public sealed class Token
     {
         public Token(int startIndex, int length, TokenType type)
         {

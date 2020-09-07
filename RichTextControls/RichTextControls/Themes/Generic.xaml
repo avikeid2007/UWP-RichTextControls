@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:richTextControls="using:RichTextControls">
 
@@ -28,14 +28,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="richTextControls:CodeHighlightedTextBlock">
-                    <Border 
-                        x:Name="RootElement" 
-                        Background="{TemplateBinding Background}" 
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        Padding="{TemplateBinding Padding}"
+                    <Border
+                        x:Name="RootElement"
                         Margin="{TemplateBinding Margin}"
-                        />
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

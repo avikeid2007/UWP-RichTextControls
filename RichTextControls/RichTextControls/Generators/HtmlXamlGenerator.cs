@@ -1,6 +1,6 @@
 ﻿using AngleSharp.Dom;
-using AngleSharp.Dom.Html;
-using AngleSharp.Parser.Html;
+using AngleSharp.Html.Dom;
+using AngleSharp.Html.Parser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +65,7 @@ namespace RichTextControls.Generators
             if (_parser == null && _document == null)
                 throw new InvalidOperationException("No HTML parser was set. If this is a subclass you must instantiate the parent with `base()`.");
 
-            _document = _document ?? _parser.Parse(_html);
+            _document = _document ?? _parser.ParseDocument(_html);
 
             var panel = new StackPanel();
 
@@ -784,7 +784,7 @@ namespace RichTextControls.Generators
             string clean = WebUtility.HtmlDecode(input);
             if (clean == "\0")
                 clean = "\n";
-            
+
             return clean;
         }
     }

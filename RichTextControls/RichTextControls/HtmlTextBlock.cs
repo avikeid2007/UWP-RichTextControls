@@ -106,7 +106,7 @@ namespace RichTextControls
             var control = d as HtmlTextBlock;
             if (control == null)
                 return;
-            
+
             control.RenderDocument();
         }
 
