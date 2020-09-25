@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>RichTextControls</id>
-    <version>1.0.8</version>
-    <title>RichTextControls</title>
+    <id>RichTextControls.UWP</id>
+    <version>1.0.0</version>
+    <title>RichTextControls for UWP</title>
     <authors>Avnish Kumar</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/avikeid2007/UWP-RichTextControls</projectUrl>
-    <description>Controls for rendering HTML and Syntax-highlighted code in UWP apps</description>
-    <releaseNotes>A set of controls for displaying text formats like HTML and Code snippet on the Universal Windows Platform (UWP). </releaseNotes>
+    <description>Controls for rendering HTML and Syntax-highlighted code in UWP Application</description>
+    <releaseNotes>A set of controls for displaying text formats like HTML and Code snippet on the Universal Windows Platform (UWP).</releaseNotes>
+    <summary>A set of controls for displaying text formats like HTML and Code snippet on the Universal Windows Platform (UWP).</summary>
     <copyright>copyright 2020</copyright>
-    <tags>HTML-markup-control  Code-snippet-control  RichTextControls avnish </tags>
+   
+    <tags>HTML-markup-control Code-snippet-control RichTextControls Avnish UWP Markup CodeSnippet Syntax-highlighted</tags>
      <dependencies>
       <group targetFramework="uap10.0">
         <dependency id="AngleSharp" version="0.14.0" />
