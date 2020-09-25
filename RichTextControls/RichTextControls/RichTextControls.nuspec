@@ -1,38 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>RichTextControls.avnishKumar</id>
-    <version>1.0.0</version>
+    <id>RichTextControls</id>
+    <version>1.0.8</version>
     <title>RichTextControls</title>
     <authors>Avnish Kumar</authors>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/avikeid2007/UWP-RichTextControls</projectUrl>
     <description>Controls for rendering HTML and Syntax-highlighted code in UWP apps</description>
     <releaseNotes>A set of controls for displaying text formats like HTML and Code snippet on the Universal Windows Platform (UWP). </releaseNotes>
     <copyright>copyright 2020</copyright>
     <tags>HTML-markup-control  Code-snippet-control  RichTextControls avnish </tags>
+     <dependencies>
+      <group targetFramework="uap10.0">
+        <dependency id="AngleSharp" version="0.14.0" />
+      </group>
+    </dependencies>
   </metadata>
-   <!--<files>
-    --><!-- WinMd and IntelliSense --><!--
-      <file src="bin\Debug\RichTextControls.winmd" target="lib\uap10.0"/>
-      <file src="bin\Debug\RichTextControls.xml" target="lib\uap10.0"/>
 
-    --><!-- XAML controls --><!--
-    <file src="Themes\Generic.xaml" target="lib\uap10.0\Themes"/>
+  <files>
+    <!-- dll and IntelliSense files -->
+   
+    <file src="bin\Release\RichTextControls.dll" target="lib\uap10.0"/>
+    <file src="bin\Release\RichTextControls.xml" target="lib\uap10.0"/>
+    <file src="bin\Release\RichTextControls.pri" target="lib\uap10.0"/>
+    <file src="bin\Release\RichTextControls.pdb" target="lib\uap10.0"/>
 
-    --><!-- WINMDs and resources --><!--
-      <file src="bin\ARM\Debug\RichTextControls.winmd" target="runtimes\win10-arm"/>
-      <file src="bin\ARM\Debug\RichTextControls.pri" target="runtimes\win10-arm"/>
+    <file src="bin\Release\RichTextControls\RichTextControls.xr.xml" target="lib\uap10.0\RichTextControls"/>
+   
+    <file src="bin\Release\RichTextControls.dll" target="runtimes\win10-x86"/>
+    <file src="bin\Release\RichTextControls.pri" target="runtimes\win10-x86"/>
+    <file src="bin\Release\RichTextControls.pdb" target="runtimes\win10-x86"/>
+    <file src="bin\Release\RichTextControls.xml" target="runtimes\win10-x86"/>
 
-      <file src="bin\ARM64\Debug\RichTextControls.winmd" target="runtimes\win10-arm64"/>
-      <file src="bin\ARM64\Debug\RichTextControls.pri" target="runtimes\win10-arm64"/>
+    <file src="bin\x64\Release\RichTextControls.dll" target="runtimes\win10-x64"/>
+    <file src="bin\x64\Release\RichTextControls.pri" target="runtimes\win10-x64"/>
+    <file src="bin\x64\Release\RichTextControls.pdb" target="runtimes\win10-x64"/>
+    <file src="bin\Release\RichTextControls.xml" target="runtimes\win10-x64"/>
 
-      <file src="bin\x64\Debug\RichTextControls.winmd" target="runtimes\win10-x64"/>
-      <file src="bin\x64\Debug\RichTextControls.pri" target="runtimes\win10-x64"/>
+    <file src="bin\ARM\Release\RichTextControls.dll" target="runtimes\win10-arm"/>
+    <file src="bin\ARM\Release\RichTextControls.pri" target="runtimes\win10-arm"/>
+    <file src="bin\ARM\Release\RichTextControls.pdb" target="runtimes\win10-arm"/>
+    <file src="bin\Release\RichTextControls.xml" target="runtimes\win10-arm"/>
 
-      <file src="bin\x86\Debug\RichTextControls.winmd" target="runtimes\win10-x86"/>
-      <file src="bin\x86\Debug\RichTextControls.pri" target="runtimes\win10-x86"/>
-
-    </files>-->
+    <file src="bin\ARM64\Release\RichTextControls.dll" target="runtimes\win10-arm64"/>
+    <file src="bin\ARM64\Release\RichTextControls.pri" target="runtimes\win10-arm64"/>
+    <file src="bin\ARM64\Release\RichTextControls.pdb" target="runtimes\win10-arm64"/>
+    <file src="bin\Release\RichTextControls.xml" target="runtimes\win10-arm64"/>
+  </files>
+ 
 </package>
