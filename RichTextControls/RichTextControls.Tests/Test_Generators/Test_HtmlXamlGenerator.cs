@@ -142,7 +142,6 @@ namespace RichTextControls.Tests.Test_Generators
             internal CustomHtmlXamlGenerator(string html)
                 : base(html)
             {
-
             }
 
             protected override Inline GenerateInlineForNode(INode node, InlineCollection inlines)

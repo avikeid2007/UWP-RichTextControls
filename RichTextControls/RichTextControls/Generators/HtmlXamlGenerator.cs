@@ -59,7 +59,7 @@ namespace RichTextControls.Generators
         /// Parses the HTML and generates elements from the children.
         /// </summary>
         /// <returns>A <see cref="UIElement"/> representing the HTML.</returns>
-        /// <exception cref="InvalidOperationException">Thrown when no parser is detected. Typically occurs when subclassed without calling base constructor.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when no parser is detected. Typically occurs when sub-classed without calling base constructor.</exception>
         public UIElement Generate()
         {
             if (_parser == null && _document == null)
@@ -118,7 +118,7 @@ namespace RichTextControls.Generators
                     return GenerateMark(node);
                 case "SMALL":
                     return GenerateSmall(node);
-                // Technically `IFRAME` is allowed as an inline, but this is not common
+                // Technically `IFRAME` is allowed as an in-line, but this is not common
                 // so we have no default handling for it.
                 case "#text":
                 default:
@@ -134,7 +134,7 @@ namespace RichTextControls.Generators
         /// <returns>The <see cref="UIElement"/> to be appended to the parent.</returns>
         protected virtual UIElement GenerateUIElementForNode(INode node, UIElementCollection elements)
         {
-            RichTextBlock lastTextBlock = null;
+            RichTextBlock lastTextBlock;
             switch (node.NodeName)
             {
                 case "S":
@@ -304,7 +304,7 @@ namespace RichTextControls.Generators
             int currentIndex = 0;
             foreach (Match match in matches)
             {
-                var key = $"{Guid.NewGuid().ToString()}_{currentIndex}";
+                var key = $"{Guid.NewGuid()}_{currentIndex}";
                 processedHtml = processedHtml.Replace(match.Value, key);
                 preTags.Add(key, match.Value);
                 currentIndex++;

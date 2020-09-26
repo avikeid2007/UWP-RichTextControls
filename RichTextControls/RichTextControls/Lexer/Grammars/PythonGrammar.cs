@@ -76,7 +76,6 @@ namespace RichTextControls.Lexer.Grammars
                 
                 new LexicalRule { Type = TokenType.Unknown, RegExpression = new Regex("^.") }, // Any
             };
-
         }
 
         public string Name

@@ -12,7 +12,7 @@ namespace RichTextControls
         private Border _rootElement;
 
         /// <summary>
-        /// Gets or sets the style for the blockquote Border
+        /// Gets or sets the style for the block-quote Border
         /// </summary>
         public Style BlockquoteBorderStyle
         {
@@ -31,7 +31,7 @@ namespace RichTextControls
         );
 
         /// <summary>
-        /// Gets or sets the style for the preformatted block Border
+        /// Gets or sets the style for the formatted block Border
         /// </summary>
         public Style PreformattedBorderStyle
         {
@@ -50,7 +50,7 @@ namespace RichTextControls
         );
 
         /// <summary>
-        /// Gets or sets the html to be rendered.
+        /// Gets or sets the HTML to be rendered.
         /// </summary>
         public string Html
         {
@@ -65,11 +65,11 @@ namespace RichTextControls
             nameof(Html),
             typeof(string),
             typeof(HtmlTextBlock),
-            new PropertyMetadata("", OnRenderingPropertyChanged)
+            new PropertyMetadata(string.Empty, OnRenderingPropertyChanged)
         );
 
         /// <summary>
-        /// Gets or sets a custom Html to Xaml generator.
+        /// Gets or sets a custom HTML to XAML generator.
         /// </summary>
         public IHtmlXamlGenerator CustomGenerator
         {
@@ -103,10 +103,8 @@ namespace RichTextControls
         /// </summary>
         private static void OnRenderingPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var control = d as HtmlTextBlock;
-            if (control == null)
+            if (!(d is HtmlTextBlock control))
                 return;
-
             control.RenderDocument();
         }
 
@@ -118,27 +116,20 @@ namespace RichTextControls
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-
             _rootElement = GetTemplateChild("RootElement") as Border;
-
             RenderDocument();
         }
 
         private void RenderDocument()
         {
-            if (_rootElement == null || String.IsNullOrEmpty(Html))
+            if (_rootElement == null || string.IsNullOrEmpty(Html))
                 return;
-
             try
             {
                 var generator = CustomGenerator ?? new HtmlXamlGenerator(Html);
-
                 generator.BlockquoteBorderStyle = BlockquoteBorderStyle;
                 generator.PreformattedBorderStyle = PreformattedBorderStyle;
-
-                var parsedHtml = generator.Generate();
-
-                _rootElement.Child = parsedHtml;
+                _rootElement.Child = generator.Generate();
             }
             catch (Exception ex)
             {

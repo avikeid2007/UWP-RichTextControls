@@ -186,7 +186,7 @@ namespace RichTextControls.Lexer.Grammars
                         "without"
                     ),
                 },
-                
+
                 // Any
                 new LexicalRule()
                 {
