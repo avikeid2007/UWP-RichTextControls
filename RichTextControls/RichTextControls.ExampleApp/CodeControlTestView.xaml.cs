@@ -1,37 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace RichTextControls.ExampleApp
 {
     public sealed partial class CodeControlTestView : UserControl
     {
-        Debouncer _debouncedParse = new Debouncer(TimeSpan.FromMilliseconds(500));
+        private Debouncer _debouncedParse = new Debouncer(TimeSpan.FromMilliseconds(500));
 
         public CodeControlTestView()
         {
             InitializeComponent();
 
-            _debouncedParse.Action += (sender, e) =>
-            {
-                CodeHighlightedPreviewTextBlock.Code = CodeSourceTextBox.Text;
-            };
-
-            Loaded += CodeControlTestView_Loaded; ;
+            _debouncedParse.Action += (__, _) => CodeHighlightedPreviewTextBlock.Code = CodeSourceTextBox.Text;
+            Loaded += CodeControlTestView_Loaded;
         }
 
         public IEnumerable<HighlightLanguage> LanguageOptions
@@ -54,7 +41,7 @@ namespace RichTextControls.ExampleApp
 
             var exampleFile = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(@"Assets\Code\example.cs");
 
-            await LoadFromFile(exampleFile);
+            await LoadFromFileAsync(exampleFile);
         }
 
         private async void OpenFileButton_Click(object sender, RoutedEventArgs e)
@@ -69,19 +56,16 @@ namespace RichTextControls.ExampleApp
             var file = await picker.PickSingleFileAsync();
             if (file != null)
             {
-                await LoadFromFile(file);
+                await LoadFromFileAsync(file);
             }
         }
 
-        private async Task LoadFromFile(StorageFile file)
+        private async Task LoadFromFileAsync(StorageFile file)
         {
             try
             {
-                var text = await FileIO.ReadTextAsync(file);
-                CodeSourceTextBox.Text = text;
-
+                CodeSourceTextBox.Text = await FileIO.ReadTextAsync(file);
                 HighlightLanguage language = HighlightLanguage.PlainText;
-
                 switch (file.FileType)
                 {
                     case ".js":

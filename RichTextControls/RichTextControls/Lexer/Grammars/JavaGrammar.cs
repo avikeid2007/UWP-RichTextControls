@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace RichTextControls.Lexer.Grammars
 {
@@ -99,7 +95,7 @@ namespace RichTextControls.Lexer.Grammars
                 {
                     Type = TokenType.Delimiter,
                     RegExpression = new Regex("^((//=)|(>>=)|(<<=)|(\\*\\*=))"),
-                }, 
+                },
 
                 // Keywords
                 new LexicalRule()
@@ -188,7 +184,7 @@ namespace RichTextControls.Lexer.Grammars
                         "Void"
                     ),
                 },
-                
+
                 // Any
                 new LexicalRule()
                 {
@@ -196,7 +192,6 @@ namespace RichTextControls.Lexer.Grammars
                     RegExpression = new Regex("^."),
                 },
             };
-
         }
 
         public string Name

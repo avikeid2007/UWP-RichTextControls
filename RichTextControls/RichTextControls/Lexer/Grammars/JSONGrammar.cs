@@ -46,8 +46,8 @@ namespace RichTextControls.Lexer.Grammars
                 {
                     Type = TokenType.WhiteSpace,
                     RegExpression = new Regex("^\\s"),
-                }, 
-                
+                },
+
                 // Any
                 new LexicalRule()
                 {
@@ -55,7 +55,6 @@ namespace RichTextControls.Lexer.Grammars
                     RegExpression = new Regex("^."),
                 },
             };
-
         }
 
         public string Name

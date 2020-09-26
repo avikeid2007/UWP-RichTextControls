@@ -163,15 +163,13 @@ namespace RichTextControls
             nameof(Code),
             typeof(string),
             typeof(CodeHighlightedTextBlock),
-            new PropertyMetadata("", OnCodeChanged)
+            new PropertyMetadata(string.Empty, OnCodeChanged)
         );
 
         private static void OnCodeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var control = d as CodeHighlightedTextBlock;
-            if (control == null)
+            if (!(d is CodeHighlightedTextBlock control))
                 return;
-
             control.RenderCode();
         }
 
@@ -183,21 +181,17 @@ namespace RichTextControls
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-
             _rootElement = GetTemplateChild("RootElement") as Border;
-
             RenderCode();
         }
 
         private void RenderCode()
         {
-            if (_rootElement == null || String.IsNullOrEmpty(Code))
+            if (_rootElement == null || string.IsNullOrEmpty(Code))
                 return;
-
             try
             {
                 IGrammar grammar = null;
-
                 switch (HighlightLanguage)
                 {
                     case HighlightLanguage.Python:
@@ -236,19 +230,17 @@ namespace RichTextControls
                     default:
                         break;
                 }
-                
+
                 var textBlock = new RichTextBlock();
                 var paragraph = new Paragraph()
                 {
                     FontFamily = new FontFamily("Consolas"),
                 };
-                
+
                 if (grammar != null)
                 {
                     Tokenizer lexer = new Tokenizer(grammar);
-
                     StringBuilder builder = new StringBuilder();
-
                     foreach (var token in lexer.Tokenize(Code))
                     {
                         var brush = BrushForTokenType(token.Type);
@@ -259,7 +251,6 @@ namespace RichTextControls
                                 paragraph.Inlines.Add(new Run() { Text = builder.ToString() });
                                 builder.Clear();
                             }
-
                             paragraph.Inlines.Add(new Run()
                             {
                                 Text = Code.Substring(token.StartIndex, token.Length),
@@ -286,7 +277,6 @@ namespace RichTextControls
                     };
                     paragraph.Inlines.Add(run);
                 }
-
                 textBlock.Blocks.Add(paragraph);
                 _rootElement.Child = textBlock;
             }

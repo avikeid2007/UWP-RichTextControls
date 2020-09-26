@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace RichTextControls.Lexer.Grammars
 {
@@ -162,7 +158,7 @@ namespace RichTextControls.Lexer.Grammars
                     Type = TokenType.Identifier,
                     RegExpression = new Regex("^[_A-Za-z][_A-Za-z0-9]*")
                 },
-                
+
                 // Any
                 new LexicalRule()
                 {
@@ -170,7 +166,6 @@ namespace RichTextControls.Lexer.Grammars
                     RegExpression = new Regex("^."),
                 },
             };
-
         }
 
         public string Name
